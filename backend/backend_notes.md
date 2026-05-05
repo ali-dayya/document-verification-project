@@ -13,7 +13,8 @@ If someone edits the file, even a small edit, the hash will become different. Th
 - `api/models.py`: database tables
 - `api/views.py`: API endpoints
 - `api/serializers.py`: checks and formats request/response data
-- `api/services.py`: helper functions for hashing, risk, trust score, and simulated blockchain
+- `api/services.py`: helper functions for hashing, risk, trust score, and blockchain
+- `api/blockchain.py`: sends document hashes to the blockchain layer
 - `api/urls.py`: endpoint routes
 
 ## Database Tables
@@ -21,7 +22,7 @@ If someone edits the file, even a small edit, the hash will become different. Th
 - `User`: stores account information and role
 - `Factory`: stores supplier factory profile
 - `Document`: stores uploaded document information
-- `BlockchainRecord`: stores the document hash as a simulated blockchain record
+- `BlockchainRecord`: stores the document hash and blockchain transaction details
 - `FraudAnalysis`: stores simple risk level
 - `TrustScore`: stores score and badge for a factory
 - `Dispute`: stores buyer complaints about a document
@@ -33,7 +34,7 @@ If someone edits the file, even a small edit, the hash will become different. Th
 3. Backend creates SHA-256 hash.
 4. Backend checks if this hash already exists.
 5. Backend saves the document.
-6. Backend saves the hash in `BlockchainRecord`.
+6. Backend saves the hash on the blockchain layer.
 7. Backend calculates risk level.
 8. Backend updates factory trust score.
 
@@ -44,7 +45,7 @@ The user can verify in two ways:
 - By sending a document ID
 - By uploading a file again
 
-The backend checks if the hash exists in `BlockchainRecord`.
+The backend checks if the hash exists in the blockchain layer.
 
 Results:
 
@@ -80,6 +81,33 @@ A factory gets a verification badge when:
 ## Good Sentence to Say
 
 "Our backend focuses on the core logic first. We simulate the blockchain in a database table because the important software engineering idea is the same: store the hash, then compare hashes during verification."
+
+If real blockchain mode is enabled:
+
+"The backend sends the document hash to a Solidity smart contract. Then it saves the transaction hash, block number, contract address, and network name in the database."
+
+## Real Blockchain Setup
+
+The smart contract is:
+
+```text
+contracts/DocumentRegistry.sol
+```
+
+It has two main functions:
+
+- `storeDocumentHash`
+- `verifyDocumentHash`
+
+To enable real blockchain mode:
+
+```powershell
+$env:BLOCKCHAIN_MODE="real"
+$env:BLOCKCHAIN_NETWORK_NAME="local"
+$env:WEB3_PROVIDER_URL="http://127.0.0.1:8545"
+$env:BLOCKCHAIN_CONTRACT_ADDRESS="your_contract_address"
+$env:BLOCKCHAIN_PRIVATE_KEY="your_wallet_private_key"
+```
 
 ## Tests
 

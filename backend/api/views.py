@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -6,7 +7,7 @@ from rest_framework.views import APIView
 from .models import BlockchainRecord, Dispute, Document, Factory
 from .permissions import IsSupplierOrBoth
 from .serializers import DisputeSerializer, DocumentListSerializer, FactorySerializer, LoginSerializer, RegisterSerializer
-from .services import analyze_risk, api_response, calculate_trust_score, create_blockchain_record, hash_uploaded_file
+from .services import analyze_risk, api_response, calculate_trust_score, create_blockchain_record, hash_uploaded_file, verify_hash_on_blockchain
 
 
 class RegisterView(APIView):
@@ -148,7 +149,7 @@ class DocumentVerifyView(APIView):
         if uploaded_file:
             file_hash = hash_uploaded_file(uploaded_file)
             record = BlockchainRecord.objects.filter(document_hash=file_hash).select_related("document").first()
-            if not record:
+            if not verify_hash_on_blockchain(file_hash):
                 return api_response(
                     True,
                     "Verification completed",
@@ -159,7 +160,9 @@ class DocumentVerifyView(APIView):
                     },
                 )
 
-            risk_level = getattr(getattr(record.document, "fraud_analysis", None), "risk_level", "Low")
+            risk_level = "Low"
+            if record:
+                risk_level = getattr(getattr(record.document, "fraud_analysis", None), "risk_level", "Low")
             return api_response(
                 True,
                 "Verification completed",
@@ -354,7 +357,7 @@ class SystemStatusView(APIView):
             "System status retrieved successfully",
             {
                 "backend": "running",
-                "blockchain": "simulated",
+                "blockchain": "real" if settings.BLOCKCHAIN_MODE == "real" else "simulated",
                 "risk_detection": "rule-based",
                 "database": "SQLite for demo, PostgreSQL-ready",
             },

@@ -21,7 +21,7 @@ Main features:
 - factory profiles
 - document upload
 - SHA-256 hashing
-- simulated blockchain record
+- simulated or real blockchain record
 - document verification
 - rule-based risk level
 - trust score and badge

@@ -61,12 +61,13 @@ class Document(models.Model):
 
 
 class BlockchainRecord(models.Model):
-    # This is our simulated blockchain table for the demo.
-    # In a real blockchain, this data would be written by a smart contract.
+    # This table stores the blockchain transaction details for each document.
     document = models.OneToOneField(Document, on_delete=models.CASCADE, related_name="blockchain_record")
     document_hash = models.CharField(max_length=64, unique=True)
     block_number = models.PositiveIntegerField()
     transaction_id = models.CharField(max_length=80, unique=True)
+    contract_address = models.CharField(max_length=120, blank=True)
+    network_name = models.CharField(max_length=80, default="simulated")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

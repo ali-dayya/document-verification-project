@@ -88,6 +88,8 @@ Important response fields:
 }
 ```
 
+In real blockchain mode, `blockchain_transaction_id` will be the real transaction hash returned by the blockchain network.
+
 ## Verify Document
 
 By uploaded file:
@@ -110,6 +112,8 @@ Or by existing document ID:
   "document_id": 1
 }
 ```
+
+If real blockchain mode is enabled, the `blockchain` value will be `real`.
 
 ## Search Factories
 

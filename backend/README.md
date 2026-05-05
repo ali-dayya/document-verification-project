@@ -9,7 +9,7 @@ The backend handles:
 - factory profiles
 - document upload
 - SHA-256 document hashing
-- simulated blockchain records
+- simulated or real blockchain records
 - document verification
 - simple risk detection
 - trust score and badge
@@ -61,6 +61,34 @@ $env:POSTGRES_PASSWORD="your_password"
 $env:POSTGRES_HOST="localhost"
 $env:POSTGRES_PORT="5432"
 ```
+
+## Blockchain
+
+The backend has two blockchain modes.
+
+Default local mode:
+
+```text
+BLOCKCHAIN_MODE=simulated
+```
+
+Real blockchain mode uses the Solidity contract in:
+
+```text
+contracts/DocumentRegistry.sol
+```
+
+Required environment variables:
+
+```powershell
+$env:BLOCKCHAIN_MODE="real"
+$env:BLOCKCHAIN_NETWORK_NAME="local"
+$env:WEB3_PROVIDER_URL="http://127.0.0.1:8545"
+$env:BLOCKCHAIN_CONTRACT_ADDRESS="your_contract_address"
+$env:BLOCKCHAIN_PRIVATE_KEY="your_wallet_private_key"
+```
+
+The frontend still uses the same upload and verify endpoints.
 
 ## Run Tests
 

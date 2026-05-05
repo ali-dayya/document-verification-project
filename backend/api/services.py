@@ -1,7 +1,7 @@
 import hashlib
-import uuid
 
-from .models import BlockchainRecord, Dispute, Document, FraudAnalysis, TrustScore
+from .blockchain import hash_exists_on_blockchain, store_hash_on_blockchain
+from .models import Dispute, Document, FraudAnalysis, TrustScore
 
 
 def api_response(success=True, message="Action completed successfully", data=None, status_code=200):
@@ -29,16 +29,11 @@ def hash_uploaded_file(uploaded_file):
 
 
 def create_blockchain_record(document):
-    # This simulates writing the document hash to a blockchain.
-    last_block = BlockchainRecord.objects.order_by("-block_number").first()
-    next_block = last_block.block_number + 1 if last_block else 1
+    return store_hash_on_blockchain(document)
 
-    return BlockchainRecord.objects.create(
-        document=document,
-        document_hash=document.file_hash,
-        block_number=next_block,
-        transaction_id=f"SIM-{uuid.uuid4().hex[:16].upper()}",
-    )
+
+def verify_hash_on_blockchain(file_hash):
+    return hash_exists_on_blockchain(file_hash)
 
 
 def analyze_risk(document, duplicate_exists=False):

@@ -91,6 +91,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 
+BLOCKCHAIN_MODE = os.environ.get("BLOCKCHAIN_MODE", "simulated")
+BLOCKCHAIN_NETWORK_NAME = os.environ.get("BLOCKCHAIN_NETWORK_NAME", "local")
+WEB3_PROVIDER_URL = os.environ.get("WEB3_PROVIDER_URL", "")
+BLOCKCHAIN_CONTRACT_ADDRESS = os.environ.get("BLOCKCHAIN_CONTRACT_ADDRESS", "")
+BLOCKCHAIN_PRIVATE_KEY = os.environ.get("BLOCKCHAIN_PRIVATE_KEY", "")
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication",
