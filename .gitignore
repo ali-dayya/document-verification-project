@@ -9,4 +9,5 @@ node_modules/
 backend/blockchain_tools/node_modules/
 dist/
 build/
+backend/staticfiles/
 .DS_Store

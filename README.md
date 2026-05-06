@@ -6,8 +6,8 @@ Software engineering course project for secure business document verification.
 
 ```text
 document-verification-project/
-├── backend/
-└── frontend/
+|-- backend/
+`-- frontend/
 ```
 
 ## Backend
@@ -58,4 +58,38 @@ Protected backend APIs need this header after login:
 
 ```http
 Authorization: Token YOUR_TOKEN
+```
+
+## Deployment Notes
+
+Recommended course deployment:
+
+- Frontend: Vercel
+- Backend: Render
+- Database: Neon PostgreSQL or any PostgreSQL database URL
+
+Backend service settings on Render:
+
+```text
+Root Directory: backend
+Build Command: bash build.sh
+Start Command: gunicorn document_verification.wsgi:application
+```
+
+Backend environment variables:
+
+```text
+DJANGO_DEBUG=0
+DJANGO_SECRET_KEY=generate a long secret value
+DJANGO_ALLOWED_HOSTS=your-render-backend-url.onrender.com
+DATABASE_URL=your-postgresql-connection-string
+CORS_ALLOWED_ORIGINS=https://your-vercel-frontend-url.vercel.app
+CSRF_TRUSTED_ORIGINS=https://your-render-backend-url.onrender.com,https://your-vercel-frontend-url.vercel.app
+BLOCKCHAIN_MODE=simulated
+```
+
+Frontend environment variable on Vercel:
+
+```text
+VITE_API_URL=https://your-render-backend-url.onrender.com/api
 ```
