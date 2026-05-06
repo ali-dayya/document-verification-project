@@ -6,6 +6,7 @@ media/
 .venv/
 venv/
 node_modules/
+backend/blockchain_tools/node_modules/
 dist/
 build/
 .DS_Store

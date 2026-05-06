@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "ganache": "ganache --host 127.0.0.1 --port 8545 --chain.chainId 1337",
+    "deploy": "node deploy_contract.js"
+  },
+  "dependencies": {
+    "ethers": "^6.15.0",
+    "solc": "^0.8.30"
+  }
+}

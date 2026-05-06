@@ -90,6 +90,12 @@ $env:BLOCKCHAIN_PRIVATE_KEY="your_wallet_private_key"
 
 The frontend still uses the same upload and verify endpoints.
 
+Local setup steps are written in:
+
+```text
+blockchain_setup.md
+```
+
 ## Run Tests
 
 ```powershell
