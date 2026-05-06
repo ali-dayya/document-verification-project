@@ -1,0 +1,1247 @@
+/* ─────────────────────────────────────────
+   Dashboard.css — TrustChain Supplier
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
+
+/* ═══════════════════════════════
+   ROOT / PAGE
+═══════════════════════════════ */
+.db-root {
+  min-height: 100vh;
+  background: #f0f4fb;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══════════════════════════════
+   NAVBAR
+═══════════════════════════════ */
+.db-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e8eef6;
+  box-shadow: 0 1px 12px rgba(30, 58, 138, 0.07);
+}
+
+.db-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Brand */
+.db-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.db-brand-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E3A8A;
+  letter-spacing: 0.01em;
+}
+
+/* Nav links */
+.db-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.db-nav-link {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.db-nav-link:hover {
+  background: #f0f5ff;
+  color: #1E3A8A;
+}
+
+.db-nav-active {
+  background: #eef2ff;
+  color: #1E3A8A;
+  font-weight: 600;
+}
+
+/* Logout button */
+.db-logout-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 9px;
+  border: 1.5px solid #e2e8f0;
+  background: transparent;
+  color: #64748b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.db-logout-btn:hover {
+  border-color: #1E3A8A;
+  color: #1E3A8A;
+  background: #f0f5ff;
+}
+
+/* Hamburger (mobile) */
+.db-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.db-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #475569;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+/* ═══════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════ */
+.db-main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ── Hero ── */
+.db-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.db-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1E3A8A 0%, #0EA5A4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.db-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.db-date {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════
+   SECTIONS
+═══════════════════════════════ */
+.db-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.db-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: 0.01em;
+}
+
+/* ═══════════════════════════════
+   STATS CARDS
+═══════════════════════════════ */
+.db-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.db-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 24px 20px;
+  box-shadow: 0 2px 16px rgba(30, 58, 138, 0.08);
+  border: 1px solid #e8eef6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.db-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.13);
+}
+
+.db-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.db-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.db-stat-blue .db-stat-icon { background: #eef2ff; color: #1E3A8A; }
+.db-stat-teal .db-stat-icon { background: #f0fdfa; color: #0EA5A4; }
+.db-stat-gold .db-stat-icon { background: #fffbeb; color: #f59e0b; }
+
+.db-stat-change {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #10b981;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+
+.db-stat-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.db-stat-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+/* Mini progress bar */
+.db-stat-bar {
+  height: 4px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.db-stat-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.db-stat-blue .db-stat-bar-fill  { width: 70%; background: linear-gradient(90deg, #1E3A8A, #3b82f6); }
+.db-stat-teal .db-stat-bar-fill  { width: 75%; background: linear-gradient(90deg, #0EA5A4, #34d399); }
+.db-stat-gold .db-stat-bar-fill  { width: 84%; background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+/* ═══════════════════════════════
+   VERIFIED SUPPLIER CARD
+═══════════════════════════════ */
+.db-verified-card {
+  background: linear-gradient(135deg, #1E3A8A 0%, #0c6e8f 55%, #0EA5A4 100%);
+  border-radius: 16px;
+  padding: 22px 24px 20px;
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.22);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.db-verified-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.3);
+}
+
+.db-verified-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  bottom: -40px;
+  right: -40px;
+  pointer-events: none;
+}
+
+.db-verified-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.db-verified-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.db-verified-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0EA5A4;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3px 10px;
+  letter-spacing: 0.02em;
+}
+
+.db-verified-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.db-verified-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+
+/* ═══════════════════════════════
+   QUICK ACTIONS
+═══════════════════════════════ */
+.db-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.db-action-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1.5px solid #e8eef6;
+  text-decoration: none;
+  box-shadow: 0 1px 6px rgba(30, 58, 138, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  cursor: pointer;
+}
+
+.db-action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(30, 58, 138, 0.11);
+}
+
+.db-action-blue:hover   { border-color: #1E3A8A; }
+.db-action-teal:hover   { border-color: #0EA5A4; }
+.db-action-slate:hover  { border-color: #64748b; }
+
+.db-action-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.db-action-blue  .db-action-icon { background: #eef2ff; color: #1E3A8A; }
+.db-action-teal  .db-action-icon { background: #f0fdfa; color: #0EA5A4; }
+.db-action-slate .db-action-icon { background: #f8fafc; color: #475569; }
+
+.db-action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.db-action-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  font-family: 'Outfit', sans-serif;
+}
+
+.db-action-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.db-action-arrow {
+  flex-shrink: 0;
+  color: #cbd5e1;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.db-action-card:hover .db-action-arrow {
+  color: #64748b;
+  transform: translateX(2px);
+}
+
+/* ═══════════════════════════════
+   RECENT ACTIVITY
+═══════════════════════════════ */
+.db-activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.db-view-all {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E3A8A;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.db-view-all:hover { opacity: 0.75; }
+
+.db-activity-list {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e8eef6;
+  box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+  overflow: hidden;
+}
+
+.db-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  animation: db-fade-in 0.3s ease both;
+  transition: background 0.15s;
+}
+
+.db-activity-item:last-child {
+  border-bottom: none;
+}
+
+.db-activity-item:hover {
+  background: #fafbff;
+}
+
+@keyframes db-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.db-activity-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.db-activity-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.db-activity-text {
+  font-size: 13.5px;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.db-activity-time {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.db-activity-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 3px 10px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+}
+
+.tag-green  { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+.tag-yellow { background: #fefce8; color: #ca8a04; border-color: #fde68a; }
+.tag-blue   { background: #eff6ff; color: #2563eb; border-color: #bfdbfe; }
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+.db-footer {
+  text-align: center;
+  padding: 16px 28px;
+  font-size: 12px;
+  color: #94a3b8;
+  border-top: 1px solid #e8eef6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.db-footer-dot { color: #cbd5e1; }
+
+.db-footer-link {
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.db-footer-link:hover { color: #1E3A8A; }
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media (max-width: 1100px) {
+  .db-stats-grid   { grid-template-columns: 1fr 1fr; }
+  .db-actions-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .db-nav-inner { padding: 0 16px; }
+
+  .db-nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 12px 16px 16px;
+    border-bottom: 1px solid #e8eef6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    gap: 2px;
+  }
+
+  .db-nav-links.open { display: flex; }
+
+  .db-hamburger { display: flex; }
+
+  .db-logout-btn span { display: none; }
+  .db-logout-btn { padding: 7px 10px; }
+
+  .db-main { padding: 20px 16px; gap: 24px; }
+
+  .db-title    { font-size: 22px; }
+  .db-date     { display: none; }
+
+  .db-stats-grid   { grid-template-columns: 1fr; }
+  .db-actions-grid { grid-template-columns: 1fr; }
+}
+/* ── Add to the bottom of your Dashboard.css ── */
+
+/* Buyer badge card — teal gradient instead of navy */
+.db-buyer-card {
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 60%, #1E3A8A 100%) !important;
+}
+
+/* Red activity tag */
+.tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+/* ── Add to the bottom of your Dashboard.css ── */
+
+/* Buyer badge card — teal gradient instead of navy */
+.db-buyer-card {
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 60%, #1E3A8A 100%) !important;
+}
+
+/* Red activity tag */
+.tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ══════════════════════════════════════════
+   BUYER DASHBOARD — Layout additions
+══════════════════════════════════════════ */
+
+/* 3 stat cards in one equal row */
+.db-buyer-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Full-width Trusted Buyer highlight card */
+.db-buyer-highlight {
+  position: relative;
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 50%, #1E3A8A 100%);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(14,165,164,.20);
+}
+.db-buyer-highlight__glow {
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.db-buyer-highlight__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.db-buyer-highlight__icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.db-buyer-highlight__sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+}
+.db-buyer-highlight__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__badge {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+.db-buyer-highlight__stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.db-buyer-highlight__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.db-buyer-highlight__stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.db-buyer-highlight__stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  white-space: nowrap;
+}
+.db-buyer-highlight__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+}
+
+/* 2×2 quick actions grid for buyer */
+.db-buyer-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .db-buyer-stats-row { grid-template-columns: 1fr; }
+  .db-buyer-highlight { flex-direction: column; align-items: flex-start; }
+  .db-buyer-highlight__right { align-items: flex-start; }
+  .db-buyer-actions-grid { grid-template-columns: 1fr; }
+}
+/* ── Add to the bottom of your Dashboard.css ── */
+
+/* Buyer badge card — teal gradient instead of navy */
+.db-buyer-card {
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 60%, #1E3A8A 100%) !important;
+}
+
+/* Red activity tag */
+.tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ══════════════════════════════════════════
+   BUYER DASHBOARD — Layout additions
+══════════════════════════════════════════ */
+
+/* 3 stat cards in one equal row */
+.db-buyer-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Full-width Trusted Buyer highlight card */
+.db-buyer-highlight {
+  position: relative;
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 50%, #1E3A8A 100%);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(14,165,164,.20);
+}
+.db-buyer-highlight__glow {
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.db-buyer-highlight__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.db-buyer-highlight__icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.db-buyer-highlight__sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+}
+.db-buyer-highlight__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__badge {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+.db-buyer-highlight__stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.db-buyer-highlight__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.db-buyer-highlight__stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.db-buyer-highlight__stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  white-space: nowrap;
+}
+.db-buyer-highlight__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+}
+
+/* 2×2 quick actions grid for buyer */
+.db-buyer-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .db-buyer-stats-row { grid-template-columns: 1fr; }
+  .db-buyer-highlight { flex-direction: column; align-items: flex-start; }
+  .db-buyer-highlight__right { align-items: flex-start; }
+  .db-buyer-actions-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Scroll fix — ensure page is not clipped ── */
+html, body, #root {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.db-root {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+/* ── Add to the bottom of your Dashboard.css ── */
+
+/* Buyer badge card — teal gradient instead of navy */
+.db-buyer-card {
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 60%, #1E3A8A 100%) !important;
+}
+
+/* Red activity tag */
+.tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ══════════════════════════════════════════
+   BUYER DASHBOARD — Layout additions
+══════════════════════════════════════════ */
+
+/* 3 stat cards in one equal row */
+.db-buyer-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Full-width Trusted Buyer highlight card */
+.db-buyer-highlight {
+  position: relative;
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 50%, #1E3A8A 100%);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(14,165,164,.20);
+}
+.db-buyer-highlight__glow {
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.db-buyer-highlight__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.db-buyer-highlight__icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.db-buyer-highlight__sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+}
+.db-buyer-highlight__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__badge {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+.db-buyer-highlight__stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.db-buyer-highlight__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.db-buyer-highlight__stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.db-buyer-highlight__stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  white-space: nowrap;
+}
+.db-buyer-highlight__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+}
+
+/* 2×2 quick actions grid for buyer */
+.db-buyer-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .db-buyer-stats-row { grid-template-columns: 1fr; }
+  .db-buyer-highlight { flex-direction: column; align-items: flex-start; }
+  .db-buyer-highlight__right { align-items: flex-start; }
+  .db-buyer-actions-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Scroll fix — ensure page is not clipped ── */
+html, body, #root {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.db-root {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+/* ── Both Dashboard: 3-col stats + action grid alignment ── */
+.db-both-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.db-both-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Buyer has 4 actions — override to 2x2 */
+.db-section:has(.db-both-actions:last-child) .db-both-actions {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .db-both-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .db-both-actions    { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .db-both-stats-grid { grid-template-columns: 1fr; }
+  .db-both-actions    { grid-template-columns: 1fr; }
+}
+
+/* Buyer has 4 actions → 2×2 grid */
+.db-both-actions--buyer {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (max-width: 600px) {
+  .db-both-actions--buyer { grid-template-columns: 1fr !important; }
+}
+/* ── Add to the bottom of your Dashboard.css ── */
+
+/* Buyer badge card — teal gradient instead of navy */
+.db-buyer-card {
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 60%, #1E3A8A 100%) !important;
+}
+
+/* Red activity tag */
+.tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ══════════════════════════════════════════
+   BUYER DASHBOARD — Layout additions
+══════════════════════════════════════════ */
+
+/* 3 stat cards in one equal row */
+.db-buyer-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Full-width Trusted Buyer highlight card */
+.db-buyer-highlight {
+  position: relative;
+  background: linear-gradient(135deg, #0EA5A4 0%, #0d7a79 50%, #1E3A8A 100%);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(14,165,164,.20);
+}
+.db-buyer-highlight__glow {
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.db-buyer-highlight__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.db-buyer-highlight__icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.db-buyer-highlight__sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+}
+.db-buyer-highlight__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.db-buyer-highlight__badge {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+.db-buyer-highlight__stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.db-buyer-highlight__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.db-buyer-highlight__stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.db-buyer-highlight__stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  white-space: nowrap;
+}
+.db-buyer-highlight__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+}
+
+/* 2×2 quick actions grid for buyer */
+.db-buyer-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .db-buyer-stats-row { grid-template-columns: 1fr; }
+  .db-buyer-highlight { flex-direction: column; align-items: flex-start; }
+  .db-buyer-highlight__right { align-items: flex-start; }
+  .db-buyer-actions-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Scroll fix — ensure page is not clipped ── */
+html, body, #root {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.db-root {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+/* ── Both Dashboard: 3-col stats + action grid alignment ── */
+.db-both-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.db-both-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Buyer has 4 actions — override to 2x2 */
+.db-section:has(.db-both-actions:last-child) .db-both-actions {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .db-both-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .db-both-actions    { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .db-both-stats-grid { grid-template-columns: 1fr; }
+  .db-both-actions    { grid-template-columns: 1fr; }
+}
+
+/* Buyer has 4 actions → 2×2 grid */
+.db-both-actions--buyer {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (max-width: 600px) {
+  .db-both-actions--buyer { grid-template-columns: 1fr !important; }
+}
+
+/* ── Both Dashboard: supplier actions — full-width vertical stack ── */
+.db-both-supplier-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* Make each action card stretch full width in the vertical stack */
+.db-both-supplier-actions .db-action-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ── Both Dashboard: Supplier actions — stacked full-width ── */
+.db-both-supplier-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.db-both-supplier-actions .db-action-card {
+  width: 100%;
+  box-sizing: border-box;
+}

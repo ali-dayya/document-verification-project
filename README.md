@@ -44,7 +44,15 @@ http://127.0.0.1:8000
 
 ## Frontend
 
-The frontend team will add the React project inside the `frontend/` folder.
+The frontend is a React web application built with Vite.
+
+Run frontend:
+
+```powershell
+cd frontend
+npm install
+npm run dev -- --host 127.0.0.1
+```
 
 Protected backend APIs need this header after login:
 

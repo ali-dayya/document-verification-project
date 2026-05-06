@@ -1,0 +1,28 @@
+/* ─────────────────────────────────────────
+   index.css — TrustChain global reset
+   Import this ONCE in main.jsx / index.jsx
+   ───────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  /* NO overflow: hidden here — each page controls its own overflow */
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
