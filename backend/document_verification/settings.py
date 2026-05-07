@@ -127,11 +127,14 @@ CORS_ALLOWED_ORIGINS = [
     for origin in os.environ.get("CORS_ALLOWED_ORIGINS", "").split(",")
     if origin.strip()
 ]
+CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.vercel\.app$"] if not DEBUG else []
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
     if origin.strip()
 ]
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS.append("https://*.vercel.app")
 
 BLOCKCHAIN_MODE = os.environ.get("BLOCKCHAIN_MODE", "simulated")
 BLOCKCHAIN_NETWORK_NAME = os.environ.get("BLOCKCHAIN_NETWORK_NAME", "local")
