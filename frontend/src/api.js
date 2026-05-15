@@ -1,6 +1,11 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
+const RENDER_API_URL = "https://document-verification-backend-s0w2.onrender.com/api";
+const envApiUrl = import.meta.env.VITE_API_URL;
+const API_URL =
+  !envApiUrl || envApiUrl.includes("document-verification-project.onrender.com")
+    ? RENDER_API_URL
+    : envApiUrl;
 
 export const api = axios.create({
   baseURL: API_URL,
