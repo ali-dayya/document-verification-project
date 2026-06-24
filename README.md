@@ -2,6 +2,12 @@
 
 Software engineering course project for secure business document verification.
 
+## Team members
+-Ali Dayya
+-Cynthia Issa
+-Assil Sabbagh
+-Adnan Zeidan
+
 ## Project Structure
 
 ```text
